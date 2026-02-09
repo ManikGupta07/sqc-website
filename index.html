@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Super Quant Coders | SQC</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #05070d;
+      --card: rgba(255, 255, 255, 0.08);
+      --glass: rgba(255, 255, 255, 0.12);
+      --blue: #00eaff;
+      --purple: #8b5cf6;
+      --cyan: #22d3ee;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0b1020, var(--bg));
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    h1, h2 {
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 800px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(0,234,255,0.15), transparent 40%),
+                  radial-gradient(circle at 70% 60%, rgba(139,92,246,0.2), transparent 45%);
+      animation: pulse 6s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero span {
+      display: block;
+      font-size: 1.3rem;
+      margin: 15px 0;
+      color: var(--cyan);
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #000;
+      background: var(--blue);
+      box-shadow: 0 0 25px rgba(0,234,255,0.4);
+      transition: 0.3s;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(0,234,255,0.7);
+    }
+
+    /* GLASS CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+      box-shadow: 0 0 30px rgba(0,234,255,0.25);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 50px 10%;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+
+    /* Robotics Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
+  box-shadow: 0 0 25px rgba(0,234,255,0.15);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(0,234,255,0.45);
+}
+
+/* Club Info Badge */
+.club-info {
+  margin-top: 25px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,234,255,0.15),
+    rgba(139,92,246,0.15)
+  );
+  border: 1px solid rgba(255,255,255,0.18);
+  max-width: 600px;
+}
+
+.club-info p {
+  margin-bottom: 8px;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at top, #0b1020, #05070d);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+  </style>
+</head>
+
+<body>
+<canvas id="particle-canvas"></canvas>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Super Quant Coders</h1>
+      <span>Where Code Meets Intelligence</span>
+      <p>
+        An elite technical club driving innovation in Artificial Intelligence,
+        Machine Learning, Robotics, and advanced computational thinking.
+        We don’t just learn tech — we build the future.
+      </p>
+      <div class="buttons">
+        <a href="#about" class="btn">Join SQC</a>
+        <a href="#projects" class="btn secondary">Explore Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+ <section id="about">
+  <h2>About SQC</h2>
+  <p>
+    Super Quant Coders (SQC) is the university’s elite technical club for
+    innovators, builders, and problem-solvers. We experiment fearlessly,
+    think beyond limits, and push the boundaries of AI, Machine Learning,
+    Robotics, and quant-level engineering.
+  </p>
+
+  <div class="club-info">
+    <p>📌 Established: <strong>2022</strong></p>
+    <p>🚀 Founder: <strong>Vikramjot Singh</strong></p>
+  </div>
+</section>
+
+
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <h2>Highlights</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>AI & ML Workshop</h3>
+        <p>
+          A hands-on deep dive into machine learning models, real-world datasets,
+          and practical AI workflows — built by students, for students.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Chichi – The Robotic Dog</h3>
+        <p>
+          An intelligent, interactive robotic companion developed entirely by SQC,
+          blending AI, sensors, and embedded systems into a futuristic prototype.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Featured Project</h2>
+    <div class="card">
+      <h3>Chichi – The Robotic Dog</h3>
+      <p>
+        Chichi is a student-built robotic dog designed to interact intelligently
+        with its environment using machine learning and sensor-driven decision making.
+      </p>
+      <p><strong>Tech Stack:</strong> AI • Machine Learning • Sensors • Embedded Systems</p>
+    </div>
+  </section>
+<section>
+  <h2>Robotics & Innovation</h2>
+  <p>
+    From intelligent machines to real-world robotics,
+    SQC transforms ideas into working prototypes.
+  </p>
+
+  <div class="gallery">
+    <img src="https://png.pngtree.com/thumb_back/fw800/background/20250828/pngtree-robotic-lab-with-glowing-neon-lights-futuristic-laboratory-advanced-machinery-and-image_18336471.webp" alt="Robotics Lab">
+    <img src="https://image.made-in-china.com/202f0j00KiPCBOJqpakA/Unitree-Go2-Robot-Dog-Electronic-Robotic-Dog-Go2-Quadruped-Robotics-for-Adults-Embodied-Ai.webp" alt="AI Robotics">
+    <img src="https://www.rolandberger.com/img/og/Roland_Berger-24_2195_Humanoid_robots-OG.jpg" alt="Robotic Dog Concept">
+  </div>
+</section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2>Events & Workshops</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>AI & ML Bootcamp</h3>
+        <p>
+          Introduction to modern AI tools, model training,
+          and practical implementation — with real outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section>
+    <h2>Core Team</h2>
+    <div class="grid">
+      <div class="card"><h3>Member Name</h3><p>Role / Domain</p></div>
+      <div class="card"><h3>Member Name</h3><p>Role / Domain</p></div>
+      <div class="card"><h3>Member Name</h3><p>Role / Domain</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="quote">“This club is different. This club is elite.”</div>
+    <p>Powered by Super Quant Coders</p>
+    <p>© 2026 SQC</p>
+  </footer>
+<script>
+  const canvas = document.getElementById("particle-canvas");
+  const ctx = canvas.getContext("2d");
+
+  let particles = [];
+  const particleCount = 120;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.6;
+      this.vy = (Math.random() - 0.5) * 0.6;
+      this.radius = Math.random() * 1.8 + 0.5;
+    }
+
+    move() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 234, 255, 0.8)";
+      ctx.fill();
+    }
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 120) {
+          ctx.strokeStyle = `rgba(139, 92, 246, ${1 - distance / 120})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      p.move();
+      p.draw();
+    });
+
+    connectParticles();
+    requestAnimationFrame(animate);
+  }
+
+  initParticles();
+  animate();
+</script>
+
+</body>
+</html>

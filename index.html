@@ -60,6 +60,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
+      padding-top:120px;
     }
 
     .hero::after {
@@ -237,11 +238,103 @@
   position: relative;
   z-index: 1;
 }
+.my{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+  .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 7, 13, 0.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--blue);
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(0,234,255,0.4);
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0,234,255,0.7);
+}
 
   </style>
 </head>
 
 <body>
+   <nav class="navbar">
+  <div class="nav-logo">SQC</div>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+
+  <a href="#join" class="nav-btn">Join</a>
+</nav>
 <canvas id="particle-canvas"></canvas>
 
   <!-- HERO -->
@@ -352,8 +445,10 @@
   <!-- FOOTER -->
   <footer>
     <div class="quote">“This club is different. This club is elite.”</div>
-    <p>Powered by Super Quant Coders</p>
+     <div class="my">
+          <p>Powered by Super Quant Coders</p>
     <p>© 2026 SQC</p>
+    </div>
   </footer>
 <script>
   const canvas = document.getElementById("particle-canvas");
@@ -439,3 +534,4 @@
 
 </body>
 </html>
+
